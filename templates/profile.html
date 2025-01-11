@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - The Magic Store</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/profile.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="shortcut icon" href="{{ url_for('static',filename='img/fevicon.png')}}" type="image/x-icon">
+
+</head>
+<body>
+    <!-- Header Section -->
+
+
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='img/Logo.png') }}" alt="Shiksha Eduhub Logo">
+        </div>
+        <div class="header-content">
+            <h1>SHIKSHA EDUHUB</h1>
+            <div class="tagline">Mentor Motivator Tutorial</div>
+        </div>
+        <nav>
+            <ul class="list">
+                <li><a href="#" class="link">Education</a></li>
+                <li><a href="#" class="link">Health</a></li>
+                <li><a href="#" class="link">Government Resolution</a></li>
+                <li><a href="#" class="link">Traditional Culture</a></li>
+                <li><a href="#" class="link">Other</a></li>
+                {% if email %}
+                <li class="icons"><a href="profile"><i class="fa-solid fa-user"></i></a></li>
+                <li class="icons"><a href="blogsmanagement"><i class="fa-solid fa-pen-nib"></i></a></li>
+                {% else %}
+                <li class="icons"><a href="login"><i class="fa-solid fa-user"></i></a></li>
+                {% endif %}
+                
+            </ul>
+        </nav>
+    </header>
+    
+
+
+    <div class="profile-container">
+        <!-- Profile Header -->
+        <div class="profile-header">
+            <div class="profile-pic">
+                <!-- <img src="{{ url_for('static', filename='img/1.png') }}" alt="User Profile Picture"> -->
+            </div>
+            <div class="profile-info">
+                <h1>{{ name }}</h1>
+            </div>
+        </div>
+
+        <!-- Profile Details -->
+        <div class="profile-details">
+            <h2>Profile Details</h2>
+            <ul class="details-list">
+                <li><strong>Email:</strong> {{ email }}</li>
+            </ul>
+            
+            <div class="profile-actions">
+                <a href="#" class="edit-button">Edit Profile</a>
+                <form action="{{ url_for('logout') }}" method="post">
+                    <button type="submit" class="logout-button">Logout</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Shiksha Eduhub. All Rights Reserved.</p>
+    </footer>
+    
+</body>
+</html>

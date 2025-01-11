@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shiksha Eduhub</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='img/Logo.png') }}" alt="Shiksha Eduhub Logo">
+        </div>
+        <div class="header-content">
+            <h1>SHIKSHA EDUHUB</h1>
+            <div class="tagline">Mentor Motivator Tutorial</div>
+        </div>
+        <nav>
+            <ul class="list">
+                <li><a href="#" class="link">Education</a></li>
+                <li><a href="#" class="link">Health</a></li>
+                <li><a href="#" class="link">Government Resolution</a></li>
+                <li><a href="#" class="link">Traditional Culture</a></li>
+                <li><a href="#" class="link">Others</a></li>
+                {% if email %}
+                <li class="icons"><a href="profile"><i class="fa-solid fa-user"></i></a></li>
+                <li class="icons"><a href="blogsmanagement"><i class="fa-solid fa-pen-nib"></i></a></li>
+                {% else %}
+                <li class="icons"><a href="login"><i class="fa-solid fa-user"></i></a></li>
+                {% endif %}
+                
+            </ul>
+        </nav>
+    </header>
+
+
+    <main role="main" class="container mt-5">
+        <div class="jumbotron p-4 p-md-5 text-white rounded bg-image">
+
+            <div class="col-md-6 px-0">
+                {% for rblogpost in rblogposts %}                
+                <h1 class="display-4 font-italic">{{ rblogpost.blogtitle }}</h1>
+                <p class="lead my-3">{{ rblogpost.blogcontent }}
+                </p>
+                
+                <p class="lead mb-0"><a href="post/{{ rblogpost._id }}" class="text-white font-weight-bold">Continue reading...</a></p>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="blog-cards-container">
+            {% for blogpost in blogposts %}
+            <div class="blog-card">
+                <img src="{{ blogpost.blogimageurl }}" alt="Blog Post Image">
+                <div class="blog-card-content">
+                    <h2 class="blog-card-title">{{ blogpost.blogtitle }}</h2>
+                    <p class="blog-card-description">{{ blogpost.blogcontent }}</p>
+                    <a href="post/{{ blogpost._id }}" class="read-more">Read More</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+
+    <div class="container mt-5">
+        <div class="greeting-div">
+            <h1>About us</h1>
+            <p>Welcome to Shiksha Eduhub, your ultimate destination for educational excellence. 
+                As your Mentor, Motivator, and Tutorial hub, we strive to provide comprehensive resources that enhance your knowledge and foster lifelong learning. 
+                Dive into our expertly crafted how-tos, inspiring success stories, insightful interviews, thorough reviews, and stay updated with the latest announcements and promotions. 
+                Empower yourself with the tools to succeed and prepare for a brighter future with Shiksha Eduhub.
+            </p>
+            
+            <div class="social-icons">
+                <p>Follow us On</p>
+                <a href="#" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a> 
+                <a href="#" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+
+    <!-- <div class="container mt-5">
+        <div class="about-me">
+            <img src="static\img\About_me_img.jpg" alt="Your Image">
+            <div class="about-me-content">
+                <h1>About Me</h1>
+                <p>Hello everyone, I’m “RAM MAHALE” a cool, decent person.</p>
+                <p>I’m a post graduate from a reputed university in India.</p>
+                <p>Follow Me On</p>
+                <div class="social-icons">
+                    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://telegram.org" target="_blank"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+
+    <footer>     
+        <p>&copy; 2024 SHIKSHA EDUHUB. All Rights Reserved.</p>
+    </footer>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shiksha Eduhub</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/blog_write.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='img/Logo.png') }}" alt="Shiksha Eduhub Logo">
+        </div>
+        <div class="header-content">
+            <h1>SHIKSHA EDUHUB</h1>
+            <div class="tagline">Mentor Motivator Tutorial</div>
+        </div>
+        <nav>
+            <ul class="list">
+                <li><a href="#" class="link">Education</a></li>
+                <li><a href="#" class="link">Health</a></li>
+                <li><a href="#" class="link">Government Resolution</a></li>
+                <li><a href="#" class="link">Traditional Culture</a></li>
+                <li><a href="#" class="link">Others</a></li>
+                {% if email %}
+                <li class="icons"><a href="profile"><i class="fa-solid fa-user"></i></a></li>
+                <li class="icons"><a href="blogsmanagement"><i class="fa-solid fa-pen-nib"></i></a></li>
+                {% else %}
+                <li class="icons"><a href="login"><i class="fa-solid fa-user"></i></a></li>
+                {% endif %}
+                
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <form action="/blog_write" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="category">Category:</label>
+                <select id="category" name="category" required>
+                    <option value="">Select a category</option>
+                    <option value="education">Education</option>
+                    <option value="health">Health</option>
+                    <option value="government">Government Resolution</option>
+                    <option value="culture">Traditional Culture</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="content">Content:</label>
+                <textarea id="content" name="content" rows="10" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="image">Upload Image:</label>
+                <input type="file" id="image" name="image" accept="image/*">
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+
+
+    <footer>     
+        <p>&copy; 2024 SHIKSHA EDUHUB. All Rights Reserved.</p>
+    </footer>
+
+
+
+</body>
+</html>

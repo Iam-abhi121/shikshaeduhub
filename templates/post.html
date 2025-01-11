@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post | Shiksha Eduhub</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/post.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='img/Logo.png') }}" alt="Shiksha Eduhub Logo">
+        </div>
+        <div class="header-content">
+            <h1>SHIKSHA EDUHUB</h1>
+            <div class="tagline">Mentor Motivator Tutorial</div>
+        </div>
+        <nav>
+            <ul class="list">
+                <li><a href="#" class="link">Education</a></li>
+                <li><a href="#" class="link">Health</a></li>
+                <li><a href="#" class="link">Government Resolution</a></li>
+                <li><a href="#" class="link">Traditional Culture</a></li>
+                <li><a href="#" class="link">Other</a></li>
+                {% if email %}
+                <li class="icons"><a href="profile"><i class="fa-solid fa-user"></i></a></li>
+                <li class="icons"><a href="blogsmanagement"><i class="fa-solid fa-pen-nib"></i></a></li>
+                {% else %}
+                <li class="icons"><a href="login"><i class="fa-solid fa-user"></i></a></li>
+                {% endif %}
+                
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Blog Content -->
+    <div class="container">
+        <h2 class="blog-post-title">{{ blogpost.blogtitle }}</h2>
+        <p class="blog-meta">By <strong>{{ blogpost.author }}</strong> | {{ blogpost.blogdate }}</p>
+        <img src="{{ blogpost.blogimageurl }}" alt="Blog Post Image">
+        <div class="blog-content">
+            {% for paragraph in blogpost.blogcontent.split('\n') %}
+            <p>{{ paragraph }}</p> 
+            {% endfor %}
+        </div>
+
+        <!-- Blog Footer -->
+        <div class="blog-footer">
+            <h3>Share this post:</h3>
+            <div class="social-share">
+                <a href="#" title="Share on Facebook"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" title="Share on Twitter"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" title="Share on Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" title="Share on LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#" title="Share on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>     
+        <p>&copy; 2024 SHIKSHA EDUHUB. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

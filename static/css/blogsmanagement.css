@@ -1,0 +1,231 @@
+body {
+    font-family: candara !important;
+    margin: 0;
+    /* background-color: #ffffff; */
+    background: linear-gradient(to bottom, #fff4e3, #ffffff);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ensures better spacing */
+    background-color: #f4f4f4;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+}
+
+.logo img {
+    height: 50px; /* Adjust size as needed */
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin: 0;
+}
+
+.tagline {
+    color: red; /* Styling for the tagline */
+    text-align: left;
+    margin: 0; /* Remove extra margin */
+    font-size: 1em; /* Adjust size as needed */
+}
+
+/* Navigation styles */
+nav {
+    margin-left: auto;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1em; /* Adjust font size */
+    transition: color 0.3s ease, transform 0.3s ease; /* Add transition for color and transform */
+}
+
+nav ul li a:hover {
+    color: rgb(255, 0, 0); /* Change color on hover */
+    transform: scale(1.1); /* Slightly increase size on hover */
+}
+
+
+
+.list{
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.link{
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: #000000;
+    font-weight: 500;
+}
+
+    .link::before,
+    .link::after {
+      content: '';
+      left: 0;
+      position: absolute;
+      width: 100%;
+      height: 0.5px;
+      background-color: #00eeff;
+      transform: scaleX(0);
+      transition: transform 0.30s;
+    }
+    
+    .link::before {
+        top: -3px;
+        transform-origin: left;
+        transform-origin: right;
+      }
+  
+      .link:hover::before,
+      .link:hover::after,
+      .active::before,
+      .active::after {
+        transform: scaleX(1);
+      }
+
+    .link::after {
+        bottom: -3px;
+    }
+
+
+
+
+
+
+
+    .card {
+        
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 16px;
+        max-width: 1000px;
+        margin: auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
+
+    }
+
+    .card a{
+        text-decoration: none;
+    }
+
+
+    .card:hover  {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transform: translateY(-5px);
+    
+
+    }
+    .card img {
+        width: 100%;
+        height: 300px;
+        border-radius: 5px;
+        display: flex;
+        object-fit: cover;
+    }
+    .card .title {
+        font-size: 1.25em;
+        margin: 16px 0;
+        line-height: 1.5;
+        text-overflow:ellipsis;
+        white-space: normal;
+        overflow:hidden;
+        display: -webkit-box; -webkit-line-clamp: 1; /* Number of lines you want to show */ 
+        -webkit-box-orient: vertical;
+    }
+    .card .text {
+        color: #666;
+        font-size: 1em;
+        line-height: 1.5;
+        text-overflow:ellipsis;
+        white-space: normal;
+        overflow:hidden;
+        display: -webkit-box; -webkit-line-clamp: 4; /* Number of lines you want to show */ 
+        -webkit-box-orient: vertical;
+    }
+    .card .timestamp {
+        color: #999;
+        font-size: 0.9em;
+    }
+
+
+    .floating-btn {
+        position: fixed; /* Fixed position */
+        bottom: 40px; /* Distance from the bottom */
+        right: 40px; /* Distance from the right */
+        background-color: #008CBA; /* Blue background */
+        border: none; /* Remove borders */
+        color: white; /* White text */
+        /* padding: 15px; Some padding */
+        text-align: center; /* Center the text */
+        text-decoration: none; /* Remove underline */
+        font-size: 28px; /* Large font size */
+        font-weight: bold;
+        border-radius: 50%; /*Rounded corners*/
+        cursor: pointer; /* Pointer cursor on hover */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a shadow */
+        z-index: 1000; /* Ensure it is above other elements */
+        height: 50px;
+        width: 50px;
+    }
+    .floating-btn:hover {
+        background-color: #007B9E; /* Darker background on hover */
+    }
+
+
+    footer {
+        /* background-color: #ededed; */
+        color: rgb(0, 0, 0); 
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 40px;
+        margin-top: 20px;
+        margin-left: 0 !important;
+        background-color: #ffffff;
+
+        
+    }
+    .footer-div {
+        display: flex;
+        text-align: center;
+        gap: 20px;
+        color: rgb(0, 0, 0); 
+        
+    
+    }
+    .footer-div a {
+        color: #000;
+    }
+    
+    .footer-div a:hover{
+        color: #ff0000;
+    
+    }
