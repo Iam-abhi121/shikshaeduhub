@@ -24,12 +24,28 @@
                 <li><a href="#" class="link">Government Resolution</a></li>
                 <li><a href="#" class="link">Traditional Culture</a></li>
                 <li><a href="#" class="link">Others</a></li>
+
                 {% if email %}
                 <li class="icons"><a href="profile"><i class="fa-solid fa-user"></i></a></li>
                 <li class="icons"><a href="blogsmanagement"><i class="fa-solid fa-pen-nib"></i></a></li>
                 {% else %}
                 <li class="icons"><a href="login"><i class="fa-solid fa-user"></i></a></li>
                 {% endif %}
+                
+                <!-- <a href="#" class="action_btn">Get Started</a> -->
+                <div class="toggle_btn">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+
+                <div class="dropdown_menu">
+                    <li><a href="#">Education</a></li>
+                    <li><a href="#">Health</a></li>
+                    <li><a href="#">Government Resolution</a></li>
+                    <li><a href="#">Traditional Culture</a></li>
+                    <li><a href="#">Others</a></li>
+                    
+
+                
                 
             </ul>
         </nav>
@@ -53,7 +69,22 @@
 
 
 
+<script>
+    const toggleBtn = document.querySelector('.toggle_btn');
+    const toggleBtnIcon = document.querySelector('.toggle_btn i');
+    const dropDownMenu = document.querySelector('.dropdown_menu');
 
+    toggleBtn.onclick = function(){
+        dropDownMenu.classList.toggle('open');
+        const isOpen = dropDownMenu.classList.contains('open');
+
+        toggleBtnIcon.classList = isOpen 
+        ? 'fa-solid fa-xmark'
+        : 'fa-solid fa-bars';
+    }
+
+
+</script>
 
 
     <footer>     
