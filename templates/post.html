@@ -26,10 +26,10 @@
                 <li><a href="#" class="link">Traditional Culture</a></li>
                 <li><a href="#" class="link">Other</a></li>
                 {% if email %}
-                <li class="icons"><a href="profile"><i class="fa-solid fa-user"></i></a></li>
-                <li class="icons"><a href="blogsmanagement"><i class="fa-solid fa-pen-nib"></i></a></li>
+                <li class="icons"><a href="https://shikshaeduhub.onrender.com/profile"><i class="fa-solid fa-user"></i></a></li>
+                <li class="icons"><a href="https://shikshaeduhub.onrender.com/blogsmanagement"><i class="fa-solid fa-pen-nib"></i></a></li>
                 {% else %}
-                <li class="icons"><a href="login"><i class="fa-solid fa-user"></i></a></li>
+                <li class="icons"><a href="https://shikshaeduhub.onrender.com/login"><i class="fa-solid fa-user"></i></a></li>
                 {% endif %}
                 
             </ul>
@@ -47,18 +47,62 @@
             {% endfor %}
         </div>
 
-        <!-- Blog Footer -->
-        <div class="blog-footer">
-            <h3>Share this post:</h3>
-            <div class="social-share">
-                <a href="#" title="Share on Facebook"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#" title="Share on Twitter"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#" title="Share on Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" title="Share on LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="#" title="Share on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-            </div>
-        </div>
+
+
+
+
+
+<!-- Blog Footer -->
+<div class="blog-footer">
+    <h3>Share this post:</h3>
+    <div class="social-share">
+        <a href="javascript:void(0);" title="Share on Facebook" onclick="shareOnFacebook()"><i class="fa-brands fa-facebook"></i></a>
+        <a href="javascript:void(0);" title="Share on Twitter" onclick="shareOnTwitter()"><i class="fa-brands fa-twitter"></i></a>
+        <a href="javascript:void(0);" title="Share on Instagram" onclick="shareOnInstagram()"><i class="fa-brands fa-instagram"></i></a>
+        <a href="javascript:void(0);" title="Share on LinkedIn" onclick="shareOnLinkedIn()"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="javascript:void(0);" title="Share on WhatsApp" onclick="shareOnWhatsApp()"><i class="fa-brands fa-whatsapp"></i></a>
     </div>
+</div>
+</div>
+
+
+
+
+<script>
+function shareOnFacebook() {
+    const url = encodeURIComponent(window.location.href);
+    const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+    window.open(shareUrl, '_blank');
+}
+
+function shareOnTwitter() {
+    const url = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent(document.title);
+    const shareUrl = `https://twitter.com/share?url=${url}&text=${text}`;
+    window.open(shareUrl, '_blank');
+}
+
+function shareOnInstagram() {
+    alert("Instagram doesn't support direct web sharing, but you can guide users to copy the link and share it on their Instagram profile.");
+}
+
+function shareOnLinkedIn() {
+    const url = encodeURIComponent(window.location.href);
+    const shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+    window.open(shareUrl, '_blank');
+}
+
+function shareOnWhatsApp() {
+    const url = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent(document.title);
+    const shareUrl = `https://api.whatsapp.com/send?text=${text}%20${url}`;
+    window.open(shareUrl, '_blank');
+}
+</script>
+
+
+
+
 
     <!-- Footer Section -->
     <footer>     
