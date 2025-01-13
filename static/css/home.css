@@ -200,7 +200,7 @@ nav ul li a:hover {
         text-overflow: ellipsis;
         white-space: normal;
         overflow:hidden;
-        display: -webkit-box; -webkit-line-clamp: 6; /* Number of lines you want to show */ 
+        display: -webkit-box; -webkit-line-clamp: 5; /* Number of lines you want to show */ 
         -webkit-box-orient: vertical;
         text-align: justify;
 
@@ -440,4 +440,19 @@ nav ul li a:hover {
 
     }
 
+    .header-content h1{
+        font-size: 1em;
+    }
+
+    .header-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-content .tagline {
+        font-size: 0.5em;
+        margin-top: -10px;
+        margin-left: 42px;
+    }
 }

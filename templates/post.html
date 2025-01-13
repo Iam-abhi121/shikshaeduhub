@@ -59,7 +59,23 @@
         <img src="{{ blogpost.blogimageurl }}" alt="Blog Post Image">
         <div class="blog-content">
             {% for paragraph in blogpost.blogcontent.split('\n') %}
-            <p>{{ paragraph }}</p> 
+
+            {% if paragraph.startswith('####') %}
+            <h4>{{ paragraph[4:] }}</h4>
+
+            {% elif paragraph.startswith('###') %}
+            <h3>{{ paragraph[3:] }}</h3>
+
+            {% elif paragraph.startswith('##') %}
+            <h2>{{ paragraph[2:] }}</h2>
+
+            {% elif paragraph.startswith('#') %}
+            <h1>{{ paragraph[1:] }}</h1>
+
+            {% else %}
+            <p>{{ paragraph }}</p>
+            {% endif %}
+
             {% endfor %}
         </div>
 

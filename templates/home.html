@@ -56,10 +56,25 @@
         <div class="jumbotron p-4 p-md-5 text-white rounded bg-image">
 
             <div class="col-md-6 px-0">
+
                 {% for rblogpost in rblogposts %}                
-                <h1 class="display-4 font-italic">{{ rblogpost.blogtitle }}</h1>
-                <p class="lead my-3">{{ rblogpost.blogcontent }}
-                </p>
+                <h1 class="display-4 font-italic">{{ rblogpost.blogtitle }}</h1>                
+                
+                {% if rblogpost.blogcontent.startswith('####') %}
+                <p class="lead my-3">{{ rblogpost.blogcontent[4:] }}</p>
+    
+                {% elif rblogpost.blogcontent.startswith('###') %}
+                <p class="lead my-3">{{ rblogpost.blogcontent[3:] }}</p>
+    
+                {% elif rblogpost.blogcontent.startswith('##') %}
+                <p class="lead my-3">{{ rblogpost.blogcontent[2:] }}</p>
+    
+                {% elif rblogpost.blogcontent.startswith('#') %}
+                <p class="lead my-3">{{ rblogpost.blogcontent[1:] }}</p>
+    
+                {% else %}
+                <p class="lead my-3">{{ rblogpost.blogcontent }}</p>
+                {% endif %}
                 
                 <p class="lead mb-0"><a href="post/{{ rblogpost._id }}" class="text-white font-weight-bold">Continue reading...</a></p>
                 {% endfor %}
@@ -72,7 +87,28 @@
                 <img src="{{ blogpost.blogimageurl }}" alt="Blog Post Image">
                 <div class="blog-card-content">
                     <h2 class="blog-card-title">{{ blogpost.blogtitle }}</h2>
+
+                    {% if blogpost.blogcontent.startswith('####') %}
+                    <p class="blog-card-description">{{ blogpost.blogcontent[4:] }}</p>
+        
+                    {% elif blogpost.blogcontent.startswith('###') %}
+                    <p class="blog-card-description">{{ blogpost.blogcontent[3:] }}</p>
+        
+                    {% elif blogpost.blogcontent.startswith('##') %}
+                    <p class="blog-card-description">{{ blogpost.blogcontent[2:] }}</p>
+        
+                    {% elif blogpost.blogcontent.startswith('#') %}
+                    <p class="blog-card-description">{{ blogpost.blogcontent[1:] }}</p>
+        
+                    {% else %}
                     <p class="blog-card-description">{{ blogpost.blogcontent }}</p>
+                    {% endif %}
+
+
+                    <!-- <p class="blog-card-description">{{ blogpost.blogcontent }}</p> -->
+
+
+
                     <a href="post/{{ blogpost._id }}" class="read-more">Read More</a>
                 </div>
             </div>

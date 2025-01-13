@@ -307,4 +307,19 @@ nav ul li a:hover {
 
     }
 
+    .header-content h1{
+        font-size: 1em;
+    }
+
+    .header-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-content .tagline {
+        font-size: 0.5em;
+        margin-top: -10px;
+        margin-left: 42px;
+    }
 }

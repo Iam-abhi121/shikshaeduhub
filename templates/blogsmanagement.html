@@ -44,9 +44,7 @@
                     <li><a href="#">Traditional Culture</a></li>
                     <li><a href="#">Others</a></li>
                     
-
-                
-                
+                           
             </ul>
         </nav>
     </header>
@@ -59,9 +57,25 @@
         <a href="post/{{ blogpost._id }}">
         <img src="{{ blogpost.blogimageurl}}" alt="Image cap">
         <div class="title">{{ blogpost.blogtitle }}</div>
-        <div class="text">{{ blogpost.blogcontent }}
-        </div>
-        <div class="timestamp">{{ blogpost.blogdate }}</div></a>
+
+
+        {% if blogpost.blogcontent.startswith('####') %}
+        <div class="text">{{ blogpost.blogcontent[4:] }}</div>
+
+        {% elif blogpost.blogcontent.startswith('###') %}
+        <div class="text">{{ blogpost.blogcontent[3:] }}</div>
+
+        {% elif blogpost.blogcontent.startswith('##') %}
+        <div class="text">{{ blogpost.blogcontent[2:] }}</div>
+
+        {% elif blogpost.blogcontent.startswith('#') %}
+        <div class="text">{{ blogpost.blogcontent[1:] }}</div>
+
+        {% else %}
+        <div class="text">{{ blogpost.blogcontent }}</div>
+        {% endif %}
+         <br>
+        <div class="timestamp">{{ blogpost.blogdate }} | {{ blogpost.blogtime[:-4] }}</div></a>
     </div>
     {% endfor %}
 
